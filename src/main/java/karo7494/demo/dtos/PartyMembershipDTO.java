@@ -10,6 +10,6 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class PartyMembership {
+public class PartyMembershipDTO {
     private Party party;
 }

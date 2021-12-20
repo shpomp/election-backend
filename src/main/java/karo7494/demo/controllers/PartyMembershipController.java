@@ -1,15 +1,14 @@
 package karo7494.demo.controllers;
 
-import karo7494.demo.dtos.PartyMembership;
+import karo7494.demo.dtos.PartyMembershipDTO;
 import karo7494.demo.entities.Candidate;
 import karo7494.demo.entities.Party;
 import karo7494.demo.repos.CandidateRepository;
 import karo7494.demo.repos.PartyRepository;
+import karo7494.demo.services.CandidateService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 
@@ -21,8 +20,14 @@ public class PartyMembershipController {
     @Autowired
     private CandidateRepository candidateRepository;
 
+    CandidateService candidateService;
+
+    public PartyMembershipController(CandidateService candidateService) {
+        this.candidateService = candidateService;
+    }
+
     @PostMapping("/add_candidate")
-    public Party addCandidate (@RequestBody PartyMembership request){
+    public Party addCandidate (@RequestBody PartyMembershipDTO request){
         return partyRepository.save(request.getParty());
     }
 
@@ -35,4 +40,16 @@ public class PartyMembershipController {
     public List<Candidate> getAllCandidates(){
         return (List<Candidate>) candidateRepository.findAll();
     }
+
+   /* @GetMapping("/candidates/parties/{id}")
+    List<Candidate> getPartyCandidates(@RequestParam(required = false) Party party){
+        return candidateService.getCandidates(party);
+    }*/
+
+    @GetMapping("/candidates/parties/{id}")
+    List<Candidate> getPartyCandidates( @PathVariable Integer id){
+        return candidateService.getCandidates(id);
+    }
+
+
 }

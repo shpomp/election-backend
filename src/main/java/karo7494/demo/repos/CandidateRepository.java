@@ -9,9 +9,12 @@ import java.util.List;
 
 @Repository
 public interface CandidateRepository extends CrudRepository<Candidate, Integer> {
-    List<Candidate> findCandidateById(int id);
-    List<Candidate> findCandidateByName(String name);
-    List<Candidate> findCandidateByLastName(String lastName);
-    List <Candidate> findCandidateByPartyId (int partyId);
+    List<Candidate> findCandidatesById(int id);
+    List<Candidate> findCandidatesByName(String name);
+    List<Candidate> findCandidatesByLastName(String lastName);
+    List <Candidate> findCandidatesByParty (Party party);
+    List <Candidate> findCandidatesByPartyId (int partyId);
+    Candidate findCandidateById (int id);
+
 }
 
