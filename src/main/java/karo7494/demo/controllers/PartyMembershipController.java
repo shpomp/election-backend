@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(maxAge = 3600)
+@CrossOrigin(origins="https://election-frenzy.herokuapp.com/", maxAge = 3600)
 @RestController
 public class PartyMembershipController {
     @Autowired

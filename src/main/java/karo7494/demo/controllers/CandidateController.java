@@ -5,7 +5,7 @@ import karo7494.demo.entities.Candidate;
 import karo7494.demo.services.CandidateService;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(maxAge = 3600)
+@CrossOrigin(origins="https://election-frenzy.herokuapp.com/", maxAge = 3600)
 @RestController
 @RequestMapping("/candidate")
 public class CandidateController {
