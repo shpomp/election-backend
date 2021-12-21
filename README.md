@@ -1,6 +1,6 @@
 For the election application to work, you need to run this backend service locally. 
 In order to do that, you need to:
-1. create a schema called "election" 
+1. create a local schema called "election" 
 2. create a file called "application.properties" in src/main/resources
 3. fill your application.properties with this data (replace credentials accordingly):
    
